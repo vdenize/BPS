@@ -1,3 +1,16 @@
 from django.shortcuts import render
 
+
 # Create your views here.
+def index(request):
+    context = {
+
+    }
+    return render(request, '../login/homepage.html', context)
+
+
+def reservation(request):
+    context = {
+
+    }
+    return render(request, 'reservation/reservation.html', context)

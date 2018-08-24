@@ -22,9 +22,9 @@ body  {
 
  <div class="main">
  <ul>
-  <li type="button"onclick="window.location='file:///C:/Users/Carl/Desktop/project%20CAI/homepage.html#'"><a href="#">Home</a></li>
+  <li type="button"><a href="{% url 'login:index' %}">Home</a></li>
   <li><a href="#">About</a></li>
-  <li type="button"onclick="window.location='../../../contact/templates/contact/contact.html'"/><a href="#">Contact</a></li>
+  <li type="button"><a href="{% url 'contact:contacts' %}">Contact</a></li>
   <li class="active"><a href="#">Sign Up</a></li>
   
   </ul>

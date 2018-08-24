@@ -23,7 +23,7 @@ body  {
  <ul>
   <li class="active"><a href={% url 'login:index' %}>Home</a></li>
   <li><a href="#">About</a></li>
-  <li type="button"onclick="window.location='../../../contact/templates/contact/contact.html'"/><a href="#">Contact</a></li>
+  <li type="button"><a href="{% url 'contact:contacts' %}">Contact</a></li>
   <li type="button"/><a href="{% url 'login:signup' %}">Sign Up</a></li>
   
   </ul>
@@ -76,7 +76,7 @@ body  {
 	  <p>Password</p>
 	  <input type="password" name="password" required >
 	  </p>
-	  <input type="submit">
+
    </form>
 
 </div>

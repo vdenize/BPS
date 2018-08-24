@@ -3,14 +3,15 @@
 <head>
 
 <title>Project</title>
-<link rel="stylesheet" type="text/css" href="../../../login/static/login/css/style.css">
-<link rel="stylesheet" type="text/css" href="../../../login/static/login/css/style1.css">
-<link rel="stylesheet" type="text/css" href="../../../login/static/login/css/style2.css">
+ {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'contact/css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'contact/css/style1.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'contact/css/style2.css' %}">
 
 <style>
 
 body  {
-    background-image: url("../../../picture.jpg");
+    background-image: url("{% static 'contact/image/picture.jpg' %}");
 	margin: 0;
 	padding: 0;
     background-size: cover;
@@ -20,10 +21,10 @@ body  {
 <header>
  <div class="main">
  <ul>
-  <li type="button" onclick="window.location='file:///C:/Users/Carl/Desktop/project%20CAI/homepage.html#'"/><a href="#">Home</a></li>
+  <li type="button"><a href="{% url 'login:index' %}">Home</a></li>
   <li><a href="#">About</a></li>
   <li class="active"><a href="#">Contact</a></li>
-  <li type="button"onclick="window.location='../../../reservation/templates/reservation/reservation.html'"/><a href="#">Sign Up</a></li>
+  <li type="button"><a href="{% url 'login:signup' %}">Sign Up</a></li>
   
   </ul>
   </div>
@@ -34,7 +35,7 @@ body  {
 
 <form>
 <div class = "container">
-<img src="../../../contact.png" class="con">
+<img src="{% static 'contact/image/contact.png' %}" class="con">
 <h1>Contact Us</h1>
 <br>
 <h6>Unit 704 Emerald Square Tower P. Tuazon corner JP Rizal Sts. Project 4, Quezon City
