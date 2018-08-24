@@ -1,131 +1,22 @@
-/* reservation*/
-
 .adminbox {
-    width: 750px;
-    height: 610px;
+    width: 850px;
+    height: 410px;
     background: #2C3E50;
     color: #fff;
-    top: 53%;
+    top: 40%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
-    padding: 70px 30px;
+    padding: 75px 30px;
     border-radius: 20px;
 }
 
-.user{
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	position: absolute;
-	top: -23px;
-	left: calc(50% - 50px);
-}
-h1{
-	margin: 0;
-	padding: 0 0 20px;
-	text-align: center;
-	font-size: 22px;
-}
+.adminbox1 {
 
-.adminbox p{
-	margin: 0;
-	padding: 0;
-	font-weight: bold;
+
+
+
 
 }
-
-.adminbox input{
-	width: 100%;
-	margin-bottom: 20px;
-	border-radius: 15px;
-}
-
-.adminbox input[type="text"]
-{
-	border: none;
-	border-bottom: 1px solid #fff;
-	background: #fff;
-	outline: none;
-	height: 40px;
-	font-size: 16px;
-	color: #000;
-}
-.adminbox input[type="submit"]
-{
-	border: none;
-	height: 40px;
-	background: #008080;
-	outline: none;
-	color: #fff;
-	font-size: 18px;
-	border-radius: 20px;
-}
-.adminbox input[type="submit"]:hover
-{
-	cursor: pointer;
-	background: #F5B041;
-	color: #000;
-}
-.adminupper{
-
-	float:center;
-	background-color:#2C3E50;
-	text-align: center;
-
-}
-.adminupperleft{
-
-	float:left;
-	text-align: center;
-	background-color:blue;
-	width: 300px;
-
-}
-.adminupperright{
-	text-align: center;
-	float:right;
-	background-color:red;
-	width: 300px;
-}
-
-.adminmid{
-    text-align: center;
-    float: left;
-    background-color: purple;
-    width: 300px;
-}
-
-.adminlowermid{
-	text-align: center;
-	float:right;
-	background-color:black;
-	width: 300px;
-}
-.adminlowerleft{
-	text-align: center;
-	float:left;
-	background-color:black;
-	width: 300px;
-}
-
-.adminlowerright{
-	text-align: center;
-	float:right;
-	background-color:black;
-	width: 300px;
-}
-.adminlowerlowermid{
-	text-align: center;
-	float:center;
-	background-color:black;
-	width: 300px;
-
-}
-
-
-
-
-
 
