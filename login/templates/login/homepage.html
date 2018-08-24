@@ -69,7 +69,7 @@ body  {
 <div class="loginbox">
 <img src="{% static 'login/image/user1.png' %}" class="user">
    <h1>Log In</h1>
-   <form>
+   <form method="post" action="{% url 'login:' %}">
       <p>Email</p>
 	  <input type="text" name="" "pattern="[A-Z/a-z]+" required >
 	  <p>Password</p>
