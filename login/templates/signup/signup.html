@@ -32,35 +32,35 @@ body  {
   </header>
 <body>
 <div class="registrationbox">
-   <form>
+   <form method="post" action="{% url 'login:signup' %}">
 	<div class = "regbox">
 	<img src="{% static 'login/image/reg1.png' %}" class="reg">
 	<h1>Create an Account</h1>
 	<div class = "upper">
         <div class = "upperperleft">
-	  <input  type="text"  name="" placeholder=" - Enter Username -"pattern="[A-Z/a-z]+" required >
+	  <input  type="text"  name="user_name" placeholder=" - Enter Username -"pattern="[A-Z/a-z]+" required >
 		</div>
 		<div class = "upperleft">
-	  <input  type="text"  name="" placeholder=" - Enter First name -"pattern="[A-Z/a-z]+" required >
+	  <input  type="text"  name="user_first_name" placeholder=" - Enter First name -"pattern="[A-Z/a-z]+" required >
 		</div>
 		<div class = "upperright">
-	  <input type="text" name="" placeholder=" - Enter Last name -" pattern="[A-Z/a-z]+" required >
+	  <input type="text" name="user_last_name" placeholder=" - Enter Last name -" pattern="[A-Z/a-z]+" required >
 		</div>
 		<div class = "midmid">
-	  <input type="email" name="" placeholder=" - Enter Email - "required>
+	  <input type="email" name="user_email" placeholder=" - Enter Email - "required>
 	  </div>
 	  <div class = "passinside">
-	<input type="password" name="" placeholder=" - Enter Password - "required >  
+	<input type="password" name="user_password" placeholder=" - Enter Password - "required >
 	</div>
 	  <div class = "lowermid">
 	   <h1>Phone Number</h1>
-	  <input type="text" name="" placeholder=" - Enter Phone Number - "pattern="[0-9]{11}" required >  
+	  <input type="text" name="user_number" placeholder=" - Enter Phone Number - "pattern="[0-9]{11}" required >
 	  </div>
 	  <div class = "lower">
 	  <center><h1>Birthday</h1></center>
 	  <div class = "month">
 	  
-		<select name="bday" size="1">
+		<select name="user_birthday" size="1">
 			<option selected disabled> -Month-</option>
 			<option value="jan">January</option>
 				<option value="feb">February</option>
@@ -79,7 +79,7 @@ body  {
 		</div>
 		<div class = "day">
 			
-				<select name="bday" size="1" >
+				<select name="user_birthday" size="1" >
 				<option selected disabled>-Day-</option>
 				<option value="jan">1</option> 
 				<option value="feb">2</option>
@@ -116,7 +116,7 @@ body  {
 			</div>
 			<div class = "year">
 			
-				<select name="bday" size="1" >
+				<select name="user_birthday" size="1" >
 				<option selected disabled>-Year-</option>
 				<option value="jan">2018</option>
 			<option value="feb">2017</option>
@@ -139,8 +139,8 @@ body  {
 		
 			<div class="lowleft">
 			<tr>
-			<td><input type="radio" name="gender" value="male" required></td>
-			<td><input type="radio" name="gender" value="female" required> </td>
+			<td><input type="radio" name="user_gender" value="male" required></td>
+			<td><input type="radio" name="user_gender" value="female" required> </td>
 			</tr>
 			</div>
 			<div class="lowright">
@@ -157,7 +157,7 @@ body  {
 	</div>
 	<div class = "lowbox"><center>
 		<div class = "lowupinside">
-	  <input type="submit" name="" value="Submit">
+	  <input type="submit" name="submit" value="Submit">
 		</div>
 		<div class = "lowdowninside">
 	  <input type="submit" name="" value="Cancel">
