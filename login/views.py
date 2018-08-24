@@ -7,3 +7,10 @@ def index(request):
 
     }
     return render(request, 'login/homepage.html', context)
+
+
+def sign_up(request):
+    context = {
+
+    }
+    return render(request, 'signup/signup.html', context)
