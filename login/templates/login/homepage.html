@@ -68,14 +68,14 @@ body  {
 <div class="loginbox">
 <img src="../../../user1.png" class="user">
    <h1>Log In</h1>
-   <form>
+   <form method="post" action="{% url 'login:' %}">
       <p>Email</p>
 	  <input type="text" name="" "pattern="[A-Z/a-z]+" required >
 	  <p>Password</p>
 	  <input type="password" name="" "pattern="[A-Z/a-z],[0-9]+" required >
 	  </p>
 	  <input type="submit" name="" value="Log In" onclick="">
-	  
+   </form>
 
 </div>
 
