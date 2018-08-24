@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login.apps.LoginConfig',
     'reservation.apps.ReservationConfig',
+    'contact.apps.ContactConfig',
 ]
 
 MIDDLEWARE = [
