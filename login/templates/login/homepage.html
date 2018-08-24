@@ -69,13 +69,14 @@ body  {
 <div class="loginbox">
 <img src="{% static 'login/image/user1.png' %}" class="user">
    <h1>Log In</h1>
-   <form>
-      <p>Email</p>
-	  <input type="text" name="" "pattern="[A-Z/a-z]+" required >
+   <form method="post" action="{% url 'login:logging_in' %}">
+       {% csrf_token %}
+      <p>Username</p>
+	  <input type="text" name="username" required >
 	  <p>Password</p>
-	  <input type="password" name="" "pattern="[A-Z/a-z],[0-9]+" required >
+	  <input type="password" name="password" required >
 	  </p>
-	  <input type="submit" name="" value="Log In" >
+
    </form>
 
 </div>
