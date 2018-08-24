@@ -7,7 +7,6 @@ from django.urls import reverse
 # Create your views here.
 
 
-
 def index(request):
     context = {
 
@@ -16,31 +15,35 @@ def index(request):
 
 
 def sign_up(request):
-    if request.method == 'post' and 'submit' in request.POST:
-        ready = False
-        first_name = request.POST.get('user_first_name')
-        last_name = request.POST.get('user_last_name')
-        phone_number = request.POST.get('user_number')
-        birthday = request.POST.get('user_birthday')
-        user_gender = request.POST.get('user_gender')
-        profile = Profile (
-                           first_name=first_name,
-                           last_name=last_name,
-                           phone_number=phone_number,
-                           birthday=birthday,
-                           gender = user_gender
-                          )
-        ready = True
+    context = {
 
-        if ready:
-            if profile.is_standard_format():
-                profile.save()
-            else:
-                profile.convert_to_standard_format()
-                profile.save()
-            return HttpResponseRedirect(reverse('login:index'))
-        else:
-            return HttpResponseRedirect(reverse('login:signup'))
+    }
+    return render(request, 'signup/signup.html', context)
+
+
+def signing_up(request):
+    ready = False
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    email = request.POST.get('email')
+    user = User.objects.create_user(username, email, password)
+    first_name = request.POST.get('user_first_name')
+    last_name = request.POST.get('user_last_name')
+    phone_number = request.POST.get('user_number')
+    birthday = request.POST.get('user_birthday')
+    user_gender = request.POST.get('user_gender')
+    profile = Profile(
+            user=user,
+            first_name=first_name,
+            last_name=last_name,
+            phone_number=phone_number,
+            birthday=birthday,
+            gender=user_gender)
+    ready = True
+
+    if ready:
+        profile.save()
+        return HttpResponseRedirect(reverse('login:index'))
     else:
         return HttpResponseRedirect(reverse('login:signup'))
 

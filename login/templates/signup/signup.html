@@ -32,13 +32,14 @@ body  {
   </header>
 <body>
 <div class="registrationbox">
-   <form method="post" action="{% url 'login:signup' %}">
+   <form method="post" action="{% url 'login:signing_up' %}">
+       {% csrf_token %}
 	<div class = "regbox">
 	<img src="{% static 'login/image/reg1.png' %}" class="reg">
 	<h1>Create an Account</h1>
 	<div class = "upper">
         <div class = "upperperleft">
-	  <input  type="text"  name="user_name" placeholder=" - Enter Username -"pattern="[A-Z/a-z]+" required >
+	  <input  type="text"  name="username" placeholder=" - Enter Username -"required >
 		</div>
 		<div class = "upperleft">
 	  <input  type="text"  name="user_first_name" placeholder=" - Enter First name -"pattern="[A-Z/a-z]+" required >
@@ -47,10 +48,10 @@ body  {
 	  <input type="text" name="user_last_name" placeholder=" - Enter Last name -" pattern="[A-Z/a-z]+" required >
 		</div>
 		<div class = "midmid">
-	  <input type="email" name="user_email" placeholder=" - Enter Email - "required>
+	  <input type="email" name="email" placeholder=" - Enter Email - "required>
 	  </div>
 	  <div class = "passinside">
-	<input type="password" name="user_password" placeholder=" - Enter Password - "required >
+	<input type="password" name="password" placeholder=" - Enter Password - "required >
 	</div>
 	  <div class = "lowermid">
 	   <h1>Phone Number</h1>
@@ -58,80 +59,7 @@ body  {
 	  </div>
 	  <div class = "lower">
 	  <center><h1>Birthday</h1></center>
-	  <div class = "month">
-	  
-		<select name="user_birthday" size="1">
-			<option selected disabled> -Month-</option>
-			<option value="jan">January</option>
-				<option value="feb">February</option>
-				<option value="mar">March</option>
-				<option value="apr">April</option>
-				<option value="may">May</option>
-				<option value="jun">June</option>
-				<option value="jul">July</option>
-				<option value="aug">August</option>
-				<option value="sep">September</option>
-				<option value="oct">October</option>
-				<option value="nov">November</option>
-				<option value="dec">December</option>
-				
-		</select>
-		</div>
-		<div class = "day">
-			
-				<select name="user_birthday" size="1" >
-				<option selected disabled>-Day-</option>
-				<option value="jan">1</option> 
-				<option value="feb">2</option>
-				<option value="mar">3</option> 
-				<option value="apr">4</option>
-		        <option value="may">5</option>
-				<option value="jun">6</option>
-			    <option value="jul">7</option>
-				<option value="aug">8</option>
-                <option value="sep">9</option>
-				<option value="oct">10</option>
-			    <option value="nov">11</option> 
-				<option value="dec">12</option>
-				<option value="dec">13</option> 
-				<option value="dec">14</option>
-				<option value="dec">15</option> 
-				<option value="dec">16</option>
-				<option value="dec">17</option>
-				<option value="dec">18</option>
-				<option value="dec">19</option>
-				<option value="dec">20</option>
-				<option value="dec">21</option>
-				<option value="dec">22</option>
-				<option value="dec">23</option>
-				<option value="dec">24</option>
-				<option value="dec">25</option>
-				<option value="dec">26</option>
-				<option value="dec">27</option>
-				<option value="dec">28</option>
-				<option value="dec">29</option>
-<option value="dec">30</option>
-				<option value="dec">31</option>
-				</select>
-			</div>
-			<div class = "year">
-			
-				<select name="user_birthday" size="1" >
-				<option selected disabled>-Year-</option>
-				<option value="jan">2018</option>
-			<option value="feb">2017</option>
-			<option value="mar">2016</option>
-			<option value="apr">2015</option>
-			<option value="may">2014</option>
-			<option value="jun">2013</option>
-			<option value="jul">2012</option>
-			<option value="aug">2011</option>
-			<option value="sep">2010</option>
-			<option value="oct">2009</option>
-			<option value="nov">2008</option>
-			<option value="dec">2007</option>
-				</select>
-			</div>
+          <input name="user_birthday" type="date" placeholder="">
 		</div>
 		<div class = "low"><br><br><h1> Gender:</h1>
 		
