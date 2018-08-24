@@ -2,15 +2,16 @@
 <html>
 <head>
 
-<title>Project</title>
 
-<link rel="stylesheet" type="text/css" href="../../../style.css">
-<link rel="stylesheet" type="text/css" href="../../../style1.css">
-<link rel="stylesheet" type="text/css" href="../../../style2.css">
+<title>Project</title>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'login/css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'login/css/style1.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'login/css/style2.css' %}">
 <style>
 
 body  {
-    background-image: url("../../../picture.jpg");
+    background-image: url("{% static 'login/image/picture.jpg' %}");
 	margin: 0;
 	padding: 0;
     background-size: 100%;
@@ -33,7 +34,7 @@ body  {
 <div class="registrationbox">
    <form>
 	<div class = "regbox">
-	<img src="../../../reg1.png" class="reg">
+	<img src="{% static 'login/image/reg1.png' %}" class="reg">
 	<h1>Create an Account</h1>
 	<div class = "upper">
         <div class = "upperperleft">
