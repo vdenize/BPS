@@ -1,5 +1,4 @@
  $(document).ready(function(){
-    alert('HI');
      $(function () {
 
         $('#calendar').fullCalendar({

@@ -14,3 +14,10 @@ def reservation(request):
 
     }
     return render(request, 'reservation/reservation.html', context)
+
+
+def calendar(request):
+    context = {
+
+    }
+    return render(request, 'calendar/calendar.html', context)

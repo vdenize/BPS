@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+    <title>Project</title>
+        {% load static %}
+     <link rel="stylesheet" type="text/css" href="{% static 'calendar/css/style.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'calendar/css/style1.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'calendar/css/style2.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'calendar/css/style3.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'calendar/css/style4.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'calendar/css/fullcalendar.css' %}">
+     <script src="{% static 'calendar/js/jquery.min.js' %}"></script>
+     <script src="{% static 'calendar/js/moment.min.js' %}"></script>
+     <script src="{% static 'calendar/js/fullcalendar.js' %}"></script>
+     <script src="{% static 'calendar/js/script.js' %}"></script>
+    <style>
+        body {
+            background-image: url("{% static 'calendar/image/picture.jpg' %}");
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-size: center;
+        }
+    </style>
+</header>
+<body>
+    <div id="calendar"></div>
+</body>
+</html>
