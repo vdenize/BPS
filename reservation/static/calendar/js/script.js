@@ -1,26 +1,26 @@
- $(document).ready(function(){
-     $(function () {
+$(document).ready(function () {
+    $.ajax({
+        url: '/reservation/get_events/',
+        success: function (data) {
 
-        $('#calendar').fullCalendar({
-            height : 600,
-            contentHeight: 600,
-            header:{
-                left:'prev,next today',
-                center: 'title',
-                right: 'month, agendaWeek, agendaDay'
-            },
-            events: [
-            {
-                title  : 'MASS',
-                start  : '2018-08-27'
-            },
-            {
-                title  : 'Holiday',
-                 start  : '2018-08-27',
+            $('#calendar').fullCalendar({
+                height: 600,
+                contentHeight: 600,
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month, agendaWeek, agendaDay'
+                },
+                events: [
+                        {
+                            title: data.titles,
+                            start: data.starts,
+                            end: data.ends
+                        },
 
-            },
-            ],
+                ],
 
-        })
-     });
+            })
+        },
     });
+});
