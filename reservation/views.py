@@ -1,3 +1,5 @@
+import json
+
 from django.http import JsonResponse
 from django.shortcuts import render
 
@@ -60,22 +62,23 @@ def deleting_event(request):
 
 
 def get_events(request):
-    # title_list = []
-    # start_list = []
-    # end_list = []
+    data_list = []
     events = Events.objects.all()
     for each in events:
-        # title_list.append(each.title)
-        # start_list.append(each.start)
-        # end_list.append(each.end)
-        # data = {
-        #     "titles": title_list,
-        #     "starts": start_list,
-        #     "ends": end_list,
-        # }
-    data = {
-            "titles": each.title,
-            "starts": each.start,
-            "ends": each.end,
+        temp = {
+            "title": str(each.title),
+            "start": str(each.start),
+            "end": str(each.end),
         }
+        data_list.append(temp)
+    data = {
+        'height': 600,
+        'contentHeight': 600,
+        'header': {
+            'left': 'prev,next today',
+            'center': 'title',
+            'right': 'month, agendaWeek, agendaDay'
+        },
+        'events': data_list,
+    }
     return JsonResponse(data)
