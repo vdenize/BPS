@@ -56,6 +56,6 @@ def logging_in(request):
 
     if user is not None:
         login(request, user)
-        return HttpResponseRedirect(reverse('reservation:reservation'))
+        return HttpResponseRedirect(reverse('reservation:calendar'))
     else:
         return render(request, 'login/homepage.html', {})

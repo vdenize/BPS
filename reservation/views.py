@@ -30,20 +30,34 @@ def calendar(request):
 
 
 def adding_event(request):
-    title = request.GET.get('title', None)
-    start = request.GET.get('start', None)
-    end = request.GET.get('end', None)
+    title = request.POST.get('title', None)
+    start = request.POST.get('start', None)
+    end = request.POST.get('end', None)
     event = Events(
         title=str(title),
         start=str(start),
         end=str(end)
     )
     event.save()
+    data_list = []
+    events = Events.objects.all()
+    for each in events:
+        temp = {
+            "title": str(each.title),
+            "start": str(each.start),
+            "end": str(each.end),
+        }
+        data_list.append(temp)
     data = {
-        "title": title,
-        "start": start,
-        "end": end
-             }
+        'height': 600,
+        'contentHeight': 600,
+        'header': {
+            'left': 'prev,next today',
+            'center': 'title',
+            'right': 'month, agendaWeek, agendaDay'
+        },
+        'events': data_list,
+    }
     return JsonResponse(data)
 
 
