@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 
 # Create your views here.
-from reservation.models import Events
+from reservation.models import Event
 
 
 def index(request):
@@ -33,7 +33,7 @@ def adding_event(request):
     title = request.GET.get('title', None)
     start = request.GET.get('start', None)
     end = request.GET.get('end', None)
-    event = Events(
+    event = Event(
         title=str(title),
         start=str(start),
         end=str(end)
@@ -63,7 +63,7 @@ def deleting_event(request):
 
 def get_events(request):
     data_list = []
-    events = Events.objects.all()
+    events = Event.objects.all()
     for each in events:
         temp = {
             "title": str(each.title),
