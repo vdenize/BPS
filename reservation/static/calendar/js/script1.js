@@ -1,8 +1,4 @@
 $(document).ready(function () {
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
         var calendar = $('#calendar').fullCalendar({
             editable: true,
             height: 600,
@@ -49,8 +45,6 @@ $(document).ready(function () {
                 }
                 calendar.fullCalendar('unselect');
             },
-
-
             editable: true,
             eventDrop: function (event, delta) {
                 var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
