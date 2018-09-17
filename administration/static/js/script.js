@@ -15,6 +15,7 @@
     center: 'title',
     right: 'month,agendaWeek,agendaDay'
    },
+      events: '/reservation/get_events/',
    eventRender: function(event, element, view) {
     if (event.allDay === 'true') {
      event.allDay = true;
@@ -72,7 +73,7 @@
 		 success: function(json) {
 			 $('#calendar').fullCalendar('removeEvents', Event.title);
 			  alert("Delete Successfully");
-
+			  $('#calendar').fullCalendar('refetchEvents');
 		}
 
 	});
@@ -80,4 +81,3 @@
   	},
   });
  });
-

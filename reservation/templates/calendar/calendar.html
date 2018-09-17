@@ -9,9 +9,13 @@
      <link rel="stylesheet" type="text/css" href="{% static 'calendar/css/style3.css' %}">
      <link rel="stylesheet" type="text/css" href="{% static 'calendar/css/style4.css' %}">
      <link rel="stylesheet" type="text/css" href="{% static 'calendar/css/fullcalendar.css' %}">
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+	 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
      <script src="{% static 'calendar/js/jquery.min.js' %}"></script>
      <script src="{% static 'calendar/js/moment.min.js' %}"></script>
      <script src="{% static 'calendar/js/fullcalendar.js' %}"></script>
+     <script src="{% static 'calendar/js/script1.js' %}"></script>
+
      <script src="{% static 'calendar/js/script.js' %}"></script>
     <style>
         body {
@@ -22,8 +26,99 @@
             background-size: center;
         }
     </style>
+    <style>
+ body {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+  }
+ #calendar {
+  width: 900px;
+  height: 473px;
+  margin: 0 auto;
+     background-color: #1CB0B4;
+  }
+ .container{
+     width: 1000px;
+     height: 582px;
+     background-color: #098588;
+ }
+</style>
 </header>
 <body>
-    <div id="calendar"></div>
+	<div class="container">
+		<div class="row">
+			<div id="calendar"></div>
+
+		</div>
+	</div>
+
+
+	<!-- Modal -->
+	<div id="createEventModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Add Event</h4>
+				</div>
+				<div class="modal-body">
+					<div class="control-group">
+						<label class="control-label" for="inputPatient">Event:</label>
+						<div class="field desc">
+							<input class="form-control" id="title" name="title" placeholder="Event" type="text" value="">
+						</div>
+					</div>
+
+					<input type="hidden" id="startTime"/>
+					<input type="hidden" id="endTime"/>
+
+
+
+					<div class="control-group">
+						<label class="control-label" for="when">When:</label>
+						<div class="controls controls-row" id="when" style="margin-top:5px;">
+						</div>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+					<button type="submit" class="btn btn-primary" id="submitButton">Save</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div id="calendarModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Event Details</h4>
+				</div>
+				<div id="modalBody" class="modal-body">
+					<h4 id="modalTitle" class="modal-title"></h4>
+					<div id="modalWhen" style="margin-top:5px;"></div>
+				</div>
+				<input type="hidden" id="eventID"/>
+				<div class="modal-footer">
+					<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+					<button type="submit" class="btn btn-danger" id="deleteButton">Delete</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Modal-->
+
+
+	<div style='margin-left: auto;margin-right: auto;text-align: center;'>
+
+
 </body>
 </html>

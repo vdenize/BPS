@@ -51,7 +51,7 @@ def deleting_event(request):
     title = request.GET.get('title', None)
     start = request.GET.get('start', None)
     end = request.GET.get('end', None)
-    event = Events.objects.get(title=title)
+    event = Event.objects.get(title=title)
     event.delete()
     data = {
         "title": title,
@@ -71,14 +71,4 @@ def get_events(request):
             "end": str(each.end),
         }
         data_list.append(temp)
-    data = {
-        'height': 600,
-        'contentHeight': 600,
-        'header': {
-            'left': 'prev,next today',
-            'center': 'title',
-            'right': 'month, agendaWeek, agendaDay'
-        },
-        'events': data_list,
-    }
-    return JsonResponse(data)
+    return JsonResponse(data_list)
