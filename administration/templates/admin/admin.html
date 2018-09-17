@@ -13,17 +13,41 @@
      <script src="{% static 'admin/js/../../../reservation/templates/calendar/static/js/moment.min.js' %}"></script>
      <script src="{% static 'admin/js/../../../reservation/templates/calendar/static/js/fullcalendar.js' %}"></script>
      <script src="{% static 'admin/js/../../../reservation/templates/calendar/static/js/script.js' %}"></script>
-    <style>
+       <style>
         body {
-            background-image: url("{% static 'admin/image/../../../reservation/templates/calendar/static/image/picture.jpg' %}");
+            background-image: url("{% static 'calendar/image/picture.jpg' %}");
             margin: 0;
             padding: 0;
             background-size: cover;
             background-size: center;
         }
     </style>
+    <style>
+ body {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+  }
+ #calendar {
+  width: 900px;
+  height: 473px;
+  margin: 0 auto;
+     background-color: #1CB0B4;
+  }
+ .container{
+     width: 1000px;
+     height: 582px;
+     background-color: #098588;
+ }
+</style>
 </header>
 <body>
-    <div id="calendar">Hello</div>
+	<div class="container">
+		<div class="row">
+			<div id="calendar"></div>
+
+		</div>
+	</div>
 </body>
 </html>
