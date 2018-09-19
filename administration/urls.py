@@ -6,5 +6,5 @@ app_name = 'administration'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('/calendar/', views.calendar, name='calendar')
+    path('calendar/', views.calendar, name='calendar')
 ]

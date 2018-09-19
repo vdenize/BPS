@@ -71,4 +71,4 @@ def get_events(request):
             "end": str(each.end),
         }
         data_list.append(temp)
-    return JsonResponse(data_list)
+    return JsonResponse(data_list, safe=False)
