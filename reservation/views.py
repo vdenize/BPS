@@ -66,9 +66,9 @@ def get_events(request):
     events = Event.objects.all()
     for each in events:
         temp = {
-            "title": str(each.title),
-            "start": str(each.start),
-            "end": str(each.end),
+            'title': each.title,
+            'start': each.start,
+            'end': each.end,
         }
         data_list.append(temp)
     return JsonResponse(data_list, safe=False)

@@ -1,16 +1,4 @@
 $(document).ready(function () {
-    let get_events_json;
-
-    function get_all_events() {
-        $.ajax({
-            url: '/reservation/get_events',
-            type: 'GET',
-            dataType: 'json',
-            success: function (json) {
-                get_events_json = json;
-            }
-        });
-    };
     var calendar = $('#calendar').fullCalendar({
         editable: true,
         height: 600,
@@ -21,8 +9,6 @@ $(document).ready(function () {
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
         },
-        events: get_all_events()
-        ,
         eventRender: function (event, element, view) {
             if (event.allDay === 'true') {
                 event.allDay = true;
@@ -32,6 +18,8 @@ $(document).ready(function () {
         },
         selectable: true,
         selectHelper: true,
+
+        events:'/reservation/get_events/',
         select: function (start, end, allDay) {
             var title = prompt('Event Title:');
             if (title) {
