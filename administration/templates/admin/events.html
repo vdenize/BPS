@@ -6,7 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fullcalendar.css' %}">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/moment.min.js' %}"></script>
+    <script src="{% static 'js/fullcalendar.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user.css' %}">
 
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="js/main.js"></script>
@@ -23,7 +29,7 @@
     <nav>
         <ul>
             <li>
-                <a href="admin/">
+                <a href="{% url 'administration:user_info' %}">
                     <span><i class="fa fa-user"></i></span>
                     <span>&nbspUsers</span>
                 </a>
@@ -51,18 +57,39 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="{% url 'administration:payments_info' %}">
                     <span><i class="fa fa-credit-card-alt"></i></span>
                     <span>&nbspPayments</span>
                 </a>
+            </li>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="signout">
+                <li>
+                    <a href="{% url 'login:index' %}">
+                        <span><i class="fa fa-sign-out"></i></span>
+
+                        <span>&nbspSign Out</span>
+
+                    </a>
+            </div>
             </li>
 
         </ul>
     </nav>
 </div>
+<div class="userbox">
+    <center>
+        <h1>Reservations</h1>
+    </center>
+    <div class="class-container"
+    <div class="row">
+        <div id="calendar"></div>
 
-<div class="maincontent">
+    </div>
 </div>
+
+</div>
+
 
 </body>
 </html>
