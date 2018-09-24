@@ -17,7 +17,7 @@ def calendar(request):
     context ={
 
     }
-    return render(request, 'admin/admin.html', context)
+    return render(request, 'admin/events.html', context)
 
 
 def get_events(request):
@@ -62,3 +62,19 @@ def deleting_event(request):
         "end": end
              }
     return JsonResponse(data)
+
+
+def user_info(request):
+    context = {
+
+
+    }
+    return render(request, 'admin/user.html', context)
+
+
+def payments_info(request):
+    context = {
+
+    }
+    return render(request, 'admin/payments.html', context)
+
