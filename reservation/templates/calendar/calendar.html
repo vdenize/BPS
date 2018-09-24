@@ -15,8 +15,6 @@
      <script src="{% static 'calendar/js/moment.min.js' %}"></script>
      <script src="{% static 'calendar/js/fullcalendar.js' %}"></script>
      <script src="{% static 'calendar/js/script1.js' %}"></script>
-
-     <script src="{% static 'calendar/js/script.js' %}"></script>
     <style>
         body {
             background-image: url("{% static 'calendar/image/picture.jpg' %}");
@@ -50,7 +48,7 @@
 	<div class="container">
 		<div class="row">
 			<div id="calendar"></div>
-
+            <input type="hidden" id="Url" data-url="{% url 'reservation:get_events'  %}" />
 		</div>
 	</div>
 
