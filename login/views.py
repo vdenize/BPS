@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .models import Profile
@@ -51,11 +51,19 @@ def signing_up(request):
 def logging_in(request):
     username = request.POST.get('username')
     password = request.POST.get('password')
-
+    auth = User.objects.get(username=username)
     user = authenticate(request, username=username, password=password)
 
     if user is not None:
         login(request, user)
-        return HttpResponseRedirect(reverse('reservation:reservation'))
+        if auth.is_superuser:
+            return HttpResponseRedirect(reverse('administration:index'))
+        else:
+            return HttpResponseRedirect(reverse('reservation:reservation'))
     else:
         return render(request, 'login/homepage.html', {})
+
+
+def logging_out(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('login:index'))

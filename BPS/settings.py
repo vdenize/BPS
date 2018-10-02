@@ -25,7 +25,7 @@ SECRET_KEY = 'd(f_uf78ell+5i9%7admh$c*iac@sg%g(fko)96-^%4*6ybb5+'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['*']
@@ -139,4 +139,4 @@ STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

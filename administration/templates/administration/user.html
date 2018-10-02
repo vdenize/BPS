@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'administration/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'administration/css/user.css' %}">
+
+
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+
+</head>
+<body>
+
+<div class="header">
+    <a href="#" class="nav-trigger"><span></span></a>
+</div>
+
+<div class="side-nav">
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url 'administration:user_info' %}">
+                    <span><i class="fa fa-user"></i></span>
+                    <span>&nbspUsers</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span><i class="fa fa-envelope"></i></span>
+                    <span>&nbspMessages</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'administration:calendar' %}">
+                    <span><i class="fa fa-calendar"></i></span>
+                    <span>&nbspEvents</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'administration:payments_info' %}">
+                    <span><i class="fa fa-credit-card-alt"></i></span>
+                    <span>&nbspPayments</span>
+                </a>
+            </li>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="signout">
+                <li>
+                    <a href="{% url 'login:index' %}">
+                        <span><i class="fa fa-sign-out"></i></span>
+
+                        <span>&nbspSign Out</span>
+
+                    </a>
+            </div>
+            </li>
+
+        </ul>
+    </nav>
+</div>
+<div class="userbox">
+    <h1>Patient's Info</h1>
+    <table>
+
+        <tr>
+            <th>First name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Birthday</th>
+            <th>Gender</th>
+            <th>Action</th>
+        </tr>
+        {% for profile in profiles %}
+        <tr>
+            <td>{{ profile.first_name }}</td>
+            <td>{{ profile.last_name }}</td>
+            <td>{{ profile.user.email }}</td>
+            <td>{{ profile.phone_number }}</td>
+            <td>{{ profile.birthday }}</td>
+            <td>{{ profile.gender }}</td>
+            <td>
+                <p>
+                    <button class="btn btn-primary pull-right1" data-placement="top" data-toggle="tooltip" title="Edit">
+                        <span class="fa fa-edit"></span>
+                    </button>
+
+                    <button class="btn btn-danger pull-right1" data-placement="top" data-toggle="tooltip" title="Delete">
+                        <span class="fa fa-trash"> </span>
+                    </button>
+                </p>
+            </td>
+        </tr>
+        {% endfor %}
+
+
+</div>
+
+
+</body>
+</html>

@@ -12,4 +12,5 @@ urlpatterns = [
     path('get_events/', views.get_events, name='get_events'),
     path('user_info/', views.user_info, name='user_info'),
     path('payment_info/', views.payments_info, name='payments_info'),
+    path('payment/', views.payment, name='payment'),
 ]
