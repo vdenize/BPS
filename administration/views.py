@@ -3,6 +3,8 @@ from django.shortcuts import render
 
 
 # Create your views here.
+from administration.models import Payments
+from login.models import Profile
 from reservation.models import Event
 
 
@@ -10,14 +12,14 @@ def index(request):
     context = {
 
     }
-    return render(request, 'admin/main.html', context)
+    return render(request, 'administration/main.html', context)
 
 
 def calendar(request):
     context ={
 
     }
-    return render(request, 'admin/events.html', context)
+    return render(request, 'administration/events.html', context)
 
 
 def get_events(request):
@@ -65,16 +67,23 @@ def deleting_event(request):
 
 
 def user_info(request):
+    profile = Profile.objects.all()
     context = {
-
-
+        'profiles': profile,
     }
-    return render(request, 'admin/user.html', context)
+    return render(request, 'administration/user.html', context)
 
 
 def payments_info(request):
+    payments = Payments.objects.all()
+    context = {
+        'payments': payments
+    }
+    return render(request, 'administration/payments.html', context)
+
+
+def payment(request):
     context = {
 
     }
-    return render(request, 'admin/payments.html', context)
-
+    return  render(request, 'payment/paypal.html', context)
