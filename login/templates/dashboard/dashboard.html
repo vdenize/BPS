@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<title>Project</title>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'login/css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'login/css/style1.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'login/css/style2.css' %}">
+<style>
+
+body  {
+    background-image: url("{% static 'login/image/picture.jpg' %}");
+	margin: 0;
+	padding: 0;
+    background-size: 100%;
+	background-attachment: fixed;
+}
+</style>
+<header>
+
+ <div class="main">
+ <ul>
+  <li type="button"><a href="{% url 'login:index' %}">Home</a></li>
+  <li><a href="#">About</a></li>
+  <li type="button"><a href="{% url 'contact:contacts' %}">Contact</a></li>
+  <li class="active"><a href="#">Sign Up</a></li>
+
+  </ul>
+  </div>
+  </header>
+<body>
+<div class="registrationbox">
+   <form method="post" action="{% url 'reservation:calendar' %}">
+       {% csrf_token %}
+	<div class = "regbox">
+	<img src="{% static 'login/image/reg1.png' %}" class="reg">
+	<h1>Your Profile</h1>
+	<div class = "upper">
+        <div class = "upperperleft">
+            <label>{{ users.user.username }}</label>
+		</div>
+		<div class = "upperleft">
+            <label>{{ users.first_name }}</label>
+		</div>
+		<div class = "upperright">
+            <label>{{ users.last_name }}</label>
+		</div>
+		<div class = "midmid">
+            <label>{{ users.user.email }}</label>
+	  </div>
+	  <div class = "lowermid">
+	   <h1>Phone Number</h1>
+          <label>{{ users.phone_number }}</label>
+	  </div>
+	  <div class = "lower">
+	  <center><h1>Birthday</h1></center>
+          <label>{{ users.birthday }}</label>
+		</div>
+
+		<div class = "pass">
+
+	</div>
+	<div class = "lowbox"><center>
+		<div class = "lowupinside">
+	  <input type="submit" name="submit" value="Make a Reservation">
+		</div>
+	 </div></center>
+	  </div>
+	  </div>
+
+	  </div>
+	  </form>
+</div>
+
+
+
+  </body>
+  </head>
+  </html>

@@ -1,8 +1,10 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 
 # Create your views here.
+from django.urls import reverse
+
 from administration.models import Payments
 from login.models import Profile
 from reservation.models import Event
@@ -86,4 +88,28 @@ def payment(request):
     context = {
 
     }
-    return  render(request, 'payment/paypal.html', context)
+    return render(request, 'payment/paypal.html', context)
+
+
+def edit(request, user_id):
+    user = Profile.objects.get(pk=user_id)
+    context = {
+        'users': user
+    }
+    return render(request, 'administration/edit.html', context)
+
+
+def editing_user(request, user_id):
+    user_new = Profile.objects.get(pk=user_id)
+    user_new.first_name = request.POST.get('user_first_name')
+    user_new.last_name = request.POST.get('user_last_name')
+    user_new.phone_number = request.POST.get('user_number')
+    user_new.birthday = request.POST.get('user_birthday')
+    user_new.save()
+    return HttpResponseRedirect(reverse('administration:index'))
+
+
+def deleting_user(request, user_id):
+    user = Profile.objects.get(pk=user_id)
+    user.delete()
+    return HttpResponseRedirect(reverse('administration:index'))

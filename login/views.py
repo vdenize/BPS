@@ -53,17 +53,27 @@ def logging_in(request):
     password = request.POST.get('password')
     auth = User.objects.get(username=username)
     user = authenticate(request, username=username, password=password)
-
+    request.session['user'] = username
     if user is not None:
         login(request, user)
         if auth.is_superuser:
             return HttpResponseRedirect(reverse('administration:index'))
         else:
-            return HttpResponseRedirect(reverse('reservation:reservation'))
+            return HttpResponseRedirect(reverse('login:dashboard'))
     else:
         return render(request, 'login/homepage.html', {})
 
 
 def logging_out(request):
+    del request.session['user']
     logout(request)
     return HttpResponseRedirect(reverse('login:index'))
+
+
+def dashboard(request):
+    user = User.objects.get(username=request.session['user'])
+    profile = Profile.objects.get(user=user)
+    context = {
+        'users': profile
+    }
+    return render(request, 'dashboard/dashboard.html', context)

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<title>Project</title>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'login/css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'login/css/style1.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'login/css/style2.css' %}">
+<style>
+
+body  {
+    background-image: url("{% static 'login/image/picture.jpg' %}");
+	margin: 0;
+	padding: 0;
+    background-size: 100%;
+	background-attachment: fixed;
+}
+</style>
+<header>
+
+ <div class="main">
+ <ul>
+  <li type="button"><a href="{% url 'login:index' %}">Home</a></li>
+  <li><a href="#">About</a></li>
+  <li type="button"><a href="{% url 'contact:contacts' %}">Contact</a></li>
+  <li class="active"><a href="#">Sign Up</a></li>
+
+  </ul>
+  </div>
+  </header>
+<body>
+<div class="registrationbox">
+   <form method="post" action="{% url 'administration:editing_user' user_id=users.id %}">
+       {% csrf_token %}
+	<div class = "regbox">
+	<img src="{% static 'login/image/reg1.png' %}" class="reg">
+	<h1>Edit an Account</h1>
+	<div class = "upper">
+		<div class = "upperleft">
+	  <input  type="text"  name="user_first_name" value="{{ users.first_name }}" pattern="[A-Z/a-z]+" required >
+		</div>
+		<div class = "upperright">
+	  <input type="text" name="user_last_name" value="{{ users.last_name }}" pattern="[A-Z/a-z]+" required >
+		</div>
+	  <div class = "lowermid">
+	   <h1>Phone Number</h1>
+	  <input type="text" name="user_number" value="{{ users.phone_number }}" pattern="[0-9]{11}" required >
+	  </div>
+	  <div class = "lower">
+	  <center><h1>Birthday</h1></center>
+          <input name="user_birthday" type="date" value="{{ users.birthday|date:"Y-m-d" }}">
+		</div>
+		<div class = "pass">
+
+	</div>
+	<div class = "lowbox"><center>
+		<div class = "lowupinside">
+	  <input type="submit" name="submit" value="Submit">
+		</div>
+		<div class = "lowdowninside">
+	  <input type="submit" name="" value="Cancel">
+	  </div>
+	 </div></center>
+	  </div>
+	  </div>
+
+	  </div>
+	  </form>
+</div>
+
+
+
+  </body>
+  </head>
+  </html>
