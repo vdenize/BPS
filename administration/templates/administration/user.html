@@ -87,14 +87,19 @@
             <td>{{ profile.birthday }}</td>
             <td>{{ profile.gender }}</td>
             <td>
+
                 <p>
+                    <form action=" {% url 'administration:edit' user_id=profile.id %} "
+                                      method="post">
+                                    {% csrf_token %}
                     <button class="btn btn-primary pull-right1" data-placement="top" data-toggle="tooltip" title="Edit">
                         <span class="fa fa-edit"></span>
                     </button>
+                    </form>
 
-                    <button class="btn btn-danger pull-right1" data-placement="top" data-toggle="tooltip" title="Delete">
+                    <a href="{% url 'administration:deleting_user' user_id=profile.id %}" class="btn btn-danger pull-right1" data-placement="top" data-toggle="tooltip" title="Delete">
                         <span class="fa fa-trash"> </span>
-                    </button>
+                    </a>
                 </p>
             </td>
         </tr>
