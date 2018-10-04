@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load static %}
+<title>Project</title>
+
+<link rel="stylesheet" type="text/css" href="{% static 'about/css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'login/css/style1.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'login/css/style2.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'about/css/style3.css' %}">
+<style>
+
+body  {
+    background-image: url("{% static 'login/image/picture.jpg' %}");
+	margin: 0;
+	padding: 0;
+    background-size: 100%;
+	background-attachment: fixed;
+}
+</style>
+<header>
+
+ <div class="main">
+ <ul>
+  <li type="button"><a href="{% url 'login:index' %}">Home</a></li>
+  <li><a href="{% url 'login:about' %}">About</a></li>
+  <li type="button"><a href="{% url 'contact:contacts' %}">Contact</a></li>
+  <li class="active"><a href="{% url 'login:signup' %}">Sign Up</a></li>
+  </ul>
+  </div>
+  </header>
+<body>
+<div class="aboutbox">
+   <form>
+	<div class = "abtbox">
+	<img src="{% static 'about/image/about.png' %}" class="abt">
+	</div>
+	
+
+    <div class = "abtboxx">
+ <img src="{% static 'about/image/med.png' %}" class="med">
+	<img src="{% static 'about/image/fam.png' %}" class="fam">
+
+	<h2>Who we are<h2>
+	<br>
+	<h5>  We are operating in a lean management and as a start up company, we are also the ones doing the administrative work such as organising reservations, marketing of clinic, maintaining data etc.</h5>
+	<br>
+	<h5> Due to our limited space, we cannot afford to have large number of clients in the same time. We realise that prior to any availed services, we can save space and time by letting them answer forms online.</h5>
+	<br>
+	<h5> We can also manage our finances through the system we can require them pre payment prior to their sessions. We do not have a clear marketing program of our services.</h5>
+     </div>
+</form>
+</div>
+  </body>
+  </head>
+  </html>

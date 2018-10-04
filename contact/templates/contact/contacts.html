@@ -33,7 +33,8 @@ body  {
  
 <body>
 
-<form>
+<form action="{% url 'contact:send_message' %}" method="post">
+    {% csrf_token %}
 <div class = "container">
 <img src="{% static 'contact/image/contact.png' %}" class="con">
 <h1>Contact Us</h1>
@@ -43,7 +44,7 @@ body  {
 <div class = "top">
 <input name="name" type="text" placeholder=" -Name- " />
 </div>
-<div = "mid">
+<div class = "mid">
 <input name="email" type="text" placeholder=" -Email- " />
 </div>
 

@@ -8,20 +8,6 @@ from django.shortcuts import render
 from reservation.models import Event
 
 
-def index(request):
-    context = {
-
-    }
-    return render(request, '../login/homepage.html', context)
-
-
-def reservation(request):
-    context = {
-
-    }
-    return render(request, 'reservation/reservation.html', context)
-
-
 def calendar(request):
     context = {
 
@@ -72,3 +58,10 @@ def get_events(request):
         }
         data_list.append(temp)
     return JsonResponse(data_list, safe=False)
+
+
+def payment(request):
+    context = {
+
+    }
+    return render(request, 'payment/paypal.html', context)

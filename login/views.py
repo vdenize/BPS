@@ -71,9 +71,14 @@ def logging_out(request):
 
 
 def dashboard(request):
-    user = User.objects.get(username=request.session['user'])
+    username = request.session['user']
+    user = User.objects.get(username=username)
     profile = Profile.objects.get(user=user)
     context = {
         'users': profile
     }
     return render(request, 'dashboard/dashboard.html', context)
+
+
+def about(request):
+    return render(request, 'about/about.html', {})
