@@ -139,4 +139,4 @@ STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

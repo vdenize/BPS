@@ -30,6 +30,7 @@ $(document).ready(function () {
                     data: 'title=' + title + '&start=' + start + '&end=' + end,
                     success: function (json) {
                         alert('Added Successfully');
+                        window.location.replace('/reservation/payment/')
                     }
                 });
                 calendar.fullCalendar('renderEvent',
@@ -45,30 +46,7 @@ $(document).ready(function () {
             calendar.fullCalendar('unselect');
         },
         editable: true,
-        eventClick: function (Event) {
-            var decision = confirm("Do you really want to do that?");
-            if (decision) {
-                $.ajax({
-                    url: "/reservation/del_event/",
-                    data: "&title=" + Event.title,
-                    success: function (json) {
-                        $('#calendar').fullCalendar('removeEvents', Event.title);
-                        alert("Delete Successfully");
-                    }
 
-                });
-                calendar.fullCalendar('renderEvent',
-                    {
-                        title: title,
-                        start: start,
-                        end: end,
-                        allDay: allDay
-                    },
-                    true
-                );
-            }
-            calendar.fullCalendar('unselect');
-        },
     })
 });
 

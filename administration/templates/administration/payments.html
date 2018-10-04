@@ -9,7 +9,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'administration/css/main.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'administration/css/user.css' %}">
 
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
 
 </head>
@@ -30,7 +29,7 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="{% url 'administration:message' %}">
                     <span><i class="fa fa-envelope"></i></span>
                     <span>&nbspMessages</span>
                 </a>
@@ -52,7 +51,7 @@
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             <div class="signout">
                 <li>
-                    <a href="{% url 'login:index' %}">
+                    <a href="{% url 'login:logging_out' %}">
                         <span><i class="fa fa-sign-out"></i></span>
 
                         <span>&nbspSign Out</span>

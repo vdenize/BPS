@@ -22,7 +22,7 @@ body  {
  <div class="main">
  <ul>
   <li class="active"><a href={% url 'login:index' %}>Home</a></li>
-{#  <li><a href="{% url '' %}">About</a></li>#}
+     <li><a href="{% url 'login:about' %}">About</a></li>
   <li type="button"><a href="{% url 'contact:contacts' %}">Contact</a></li>
   <li type="button"/><a href="{% url 'login:signup' %}">Sign Up</a></li>
   

@@ -23,9 +23,9 @@ body  {
  <div class="main">
  <ul>
   <li type="button"><a href="{% url 'login:index' %}">Home</a></li>
-  <li><a href="#">About</a></li>
+  <li><a href="{% url 'login:about' %}">About</a></li>
   <li type="button"><a href="{% url 'contact:contacts' %}">Contact</a></li>
-  <li class="active"><a href="#">Sign Up</a></li>
+  <li class="active"><a href="{% url 'login:signup' %}">Sign Up</a></li>
 
   </ul>
   </div>
@@ -65,6 +65,11 @@ body  {
 	<div class = "lowbox"><center>
 		<div class = "lowupinside">
 	  <input type="submit" name="submit" value="Make a Reservation">
+            <a href="{% url 'login:logging_out' %}" >
+            <span><i class="fa fa-sign-out"></i></span>
+
+                        <span>&nbspSign Out</span>
+                </a>
 		</div>
 	 </div></center>
 	  </div>

@@ -27,8 +27,7 @@
                 </a>
             </li>
 
-            <li>
-                <a href="{% url 'administration:message' %}">
+            <li><a href="{% url 'administration:message' %}">
                     <span><i class="fa fa-envelope"></i></span>
                     <span>&nbspMessages</span>
                 </a>
@@ -56,45 +55,32 @@
                         <span>&nbspSign Out</span>
 
                     </a>
+                </li>
             </div>
-            </li>
+
 
         </ul>
     </nav>
 </div>
 <div class="userbox">
-    <h1>Patient's Info</h1>
+    <h1>Messages</h1>
     <table>
 
         <tr>
-            <th>First name</th>
-            <th>Last Name</th>
+            <th>Sender's Name</th>
             <th>Email</th>
-            <th>Phone Number</th>
-            <th>Birthday</th>
-            <th>Gender</th>
+            <th>Message</th>
             <th>Action</th>
         </tr>
-        {% for profile in profiles %}
+        {% for message in messages %}
         <tr>
-            <td>{{ profile.first_name }}</td>
-            <td>{{ profile.last_name }}</td>
-            <td>{{ profile.user.email }}</td>
-            <td>{{ profile.phone_number }}</td>
-            <td>{{ profile.birthday }}</td>
-            <td>{{ profile.gender }}</td>
+            <td>{{ message.name }}</td>
+            <td>{{ message.email }}</td>
+            <td>{{ message.message }}</td>
             <td>
 
                 <p>
-                    <form action=" {% url 'administration:edit' user_id=profile.id %} "
-                                      method="post">
-                                    {% csrf_token %}
-                    <button class="btn btn-primary pull-right1" data-placement="top" data-toggle="tooltip" title="Edit">
-                        <span class="fa fa-edit"></span>
-                    </button>
-                    </form>
-
-                    <a href="{% url 'administration:deleting_user' user_id=profile.id %}" class="btn btn-danger pull-right1" data-placement="top" data-toggle="tooltip" title="Delete">
+                    <a href="{% url 'administration:deleting_message' message_id=message.id %}" class="btn btn-danger pull-right1" data-placement="top" data-toggle="tooltip" title="Delete">
                         <span class="fa fa-trash"> </span>
                     </a>
                 </p>

@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from administration.models import Payments
+from contact.models import Message
 from login.models import Profile
 from reservation.models import Event
 
@@ -84,13 +85,6 @@ def payments_info(request):
     return render(request, 'administration/payments.html', context)
 
 
-def payment(request):
-    context = {
-
-    }
-    return render(request, 'payment/paypal.html', context)
-
-
 def edit(request, user_id):
     user = Profile.objects.get(pk=user_id)
     context = {
@@ -112,4 +106,18 @@ def editing_user(request, user_id):
 def deleting_user(request, user_id):
     user = Profile.objects.get(pk=user_id)
     user.delete()
-    return HttpResponseRedirect(reverse('administration:index'))
+    return HttpResponseRedirect(reverse('administration:user_info'))
+
+
+def message(request):
+    messages = Message.objects.all()
+    context = {
+        'messages': messages
+    }
+    return render(request, 'administration/message.html', context)
+
+
+def deleting_message(request, message_id):
+    messages = Message.objects.get(pk=message_id)
+    messages.delete()
+    return HttpResponseRedirect(reverse('administration:message'))
