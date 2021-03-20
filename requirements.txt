@@ -28,7 +28,7 @@ httplib2==0.11.3
 idna==2.6
 jdcal==1.4
 jedi==0.12.1
-Jinja2==2.10
+Jinja2==2.11.3
 jsonschema==2.6.0
 kiwisolver==1.0.1
 Markdown==2.6.11
