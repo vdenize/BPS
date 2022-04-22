@@ -46,7 +46,7 @@ psycopg2==2.7.4
 pycparser==2.18
 Pygments==2.2.0
 pyparsing==2.2.0
-PyPDF2==1.26.0
+PyPDF2==1.27.5
 python-dateutil==2.7.2
 python-dotenv==0.8.2
 python-google-places==1.4.1
